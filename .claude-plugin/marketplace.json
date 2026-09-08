@@ -1,0 +1,21 @@
+{
+  "name": "neatplatform-skills",
+  "description": "A marketplace of reusable skills for the NeatPlatform organized into plugins by functional area.",
+  "owner": {
+    "name": "Platform Engineering",
+    "email": "skills@neatplatform.dev",
+    "url": "https://github.com/neatplatform"
+  },
+  "plugins": [
+    {
+      "name": "dev",
+      "source": "./plugins/dev",
+      "description": "Developer skills for coding, testing, and troubleshooting workflows"
+    },
+    {
+      "name": "infra",
+      "source": "./plugins/infra",
+      "description": "Infrastructure skills for provisioning and maintaining cloud resources"
+    }
+  ]
+}

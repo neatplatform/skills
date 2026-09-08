@@ -1,0 +1,9 @@
+{
+  "name": "infra",
+  "description": "Infrastructure skills for provisioning and maintaining cloud resources",
+  "version": "0.1.0",
+  "author": {
+    "name": "Platform Engineering",
+    "email": "skills@neatplatform.dev"
+  }
+}
