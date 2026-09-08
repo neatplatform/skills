@@ -35,7 +35,6 @@ Skills live under a plugin's `skills/` directory, one subdirectory per skill:
      followed by the step-by-step instructions the skill should follow.
   4. Bump the `version` field in that plugin's `.claude-plugin/plugin.json` (semver),
      so consumers know the plugin changed and pick up the update.
-  5. Validate the skill with `claude plugin eval` before submitting it for review.
 
 ## CI Checks
 
