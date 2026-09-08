@@ -103,6 +103,7 @@ Use `curl` via Bash. Registry-specific list-tags calls:
     ```
     curl -s "https://hub.docker.com/v2/repositories/<ns>/<repo>/tags?page_size=100" | jq -r '.results[].name'
     ```
+
     Paginate via the `next` field in the response if you need more than 100.
     For a Docker Official Image (unnamespaced, e.g. `golang`, `alpine`), use `library` as `<ns>`.
 
@@ -127,6 +128,7 @@ Use `curl` via Bash. Registry-specific list-tags calls:
     TOKEN=$(curl -s "https://<registry-host>/token?scope=repository:<ns>/<repo>:pull" | jq -r .token)
     curl -s -H "Authorization: Bearer $TOKEN" "https://<registry-host>/v2/<ns>/<repo>/tags/list" | jq -r '.tags[]'
     ```
+
     Not every host implements the same auth handshake — if the token endpoint 404s or the registry needs real credentials,
     fall back to the GitHub tags proxy below rather than guessing at auth.
 
