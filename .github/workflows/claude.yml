@@ -1,0 +1,30 @@
+name: Claude
+on:
+  pull_request:
+    branches:
+      - main  # Pre-merge validation
+  merge_group:
+    branches:
+      - main  # Merge queue validation
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v6
+        name: Checkout Repository
+
+      - name: Install Claude Code
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Validate Plugins
+        run: |
+          claude plugin validate --strict .
