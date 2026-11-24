@@ -8,10 +8,38 @@ Skills are grouped into plugins by functionality and consumers only pull in what
 
 ## Quick Start
 
+### Install Manually
+
+Run these commands inside your agent's session:
+
 ```
 /plugin marketplace add neatplatform/skills   # Add the marketplace once
 /plugin marketplace list neatplatform-skills  # Browse everything available
-/plugin install dev@neatplatform-skills       # Install plugin you need
+/plugin install dev@neatplatform-skills       # Install the plugin you need
+```
+
+**Note:** Because this is a private repository,
+make sure your git credentials are configured before adding the marketplace.
+
+### Enable Automatically For a Repository
+
+To give everyone on a repo these skills without manual setup,
+commit the following to the consuming repo's `.claude/settings.json`:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "neatplatform-skills": {
+      "source": {
+        "source": "github",
+        "repo": "neatplatform/skills"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "dev@neatplatform-skills": true
+  }
+}
 ```
 
 ## Available Plugins
